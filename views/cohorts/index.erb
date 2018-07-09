@@ -1,3 +1,16 @@
-<% @cohorts.each do |cohort| %>
-  <a href="/cohorts/<%= cohort.id %>/students" ><%= cohort.name %></a>
-<% end %>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<div class="container">
+  <div class="row">
+      <% @cohorts.each do |cohort| %>
+        <div class="col-md-4">
+          <a href="/cohorts/<%= cohort.id %>/students" class="card-link">
+            <div class="card">
+              <p class="card-content" ><%= cohort.name %></p>
+            </div>
+          </a>
+        </div>
+      <% end %>
+  </div>
+</div>

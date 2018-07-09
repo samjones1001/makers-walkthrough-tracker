@@ -1,3 +1,16 @@
-<% @challenges.each do |challenge| %>
-  <a href="/challenges/<%= challenge.id%>/stages" ><%= challenge.name %></a>
-<% end %>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<div class="container">
+  <div class="row">
+    <% @challenges.each do |challenge| %>
+      <div class="col-md-4">
+        <a href="/challenges/<%= challenge.id%>/stages" class="card-link">
+          <div class="card">
+            <p class="card-content" ><%= challenge.name %></p>
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>

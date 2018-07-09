@@ -1,17 +1,25 @@
-<%= @stage.name %>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/css/main.css">
 
-<form class="" action="/results" method="post">
-  <input type="hidden" name="stage_id" value="<%= @stage.id %>">
-  <input type="hidden" name="challenge_id" value="<%= @stage.challenge_id %>">
-  <div>
-    <input type="radio" id="choice1"
-     name="status" value="yes">
-    <label for="choice1">Yes</label>
+<div class="container">
+  <div class="content">
+    <h3><%= @stage.name %></h3>
+    <h5>Did you rely on the Walkthrough to complete this step?</h5>
 
-    <input type="radio" id="choice2"
-     name="status" value="no">
-    <label for="choice2">No</label>
+    <form class="" action="/results" method="post">
+      <input type="hidden" name="stage_id" value="<%= @stage.id %>">
+      <input type="hidden" name="challenge_id" value="<%= @stage.challenge_id %>">
+      <div>
+        <input type="radio" id="choice1"
+         name="status" value="yes">
+        <label for="choice1">Yes</label>
+
+        <input type="radio" id="choice2"
+         name="status" value="no">
+        <label for="choice2">No</label>
+      </div>
+
+      <input type="submit" value="Submit">
+    </form>
   </div>
-
-  <input type="submit" value="Submit">
-</form>
+</div>
