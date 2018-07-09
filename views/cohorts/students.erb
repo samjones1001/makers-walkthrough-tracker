@@ -1,0 +1,6 @@
+<% @students.each do |student| %>
+  <form action="/students" method="post">
+    <input type="hidden" name="student_id" value="<%= student.id %>">
+    <input type="submit" name="" value="<%= student.name %>">
+  </form>
+<% end %>
