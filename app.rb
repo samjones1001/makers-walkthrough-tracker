@@ -39,7 +39,17 @@ class WalkthroughTracker < Sinatra::Base
 
   get '/challenges/:id/stages' do
     @stage = Stage.get_next(session[:student_id], params['id'])
+    redirect '/challenges/:id/stages/done' if !@stage
     erb :'/stages/index'
+  end
+
+  get '/challenges/:id/stages/done' do
+    erb :'/stages/done'
+  end
+
+  post '/results' do
+    Result.create(status: params[:status], stage_id: params[:stage_id], student_id: session[:student_id], challenge_id: params[:challenge_id])
+    redirect "/challenges/#{params[:challenge_id]}/stages"
   end
 
   run! if app_file == $0

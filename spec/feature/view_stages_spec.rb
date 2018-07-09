@@ -9,6 +9,7 @@ feature 'view stages' do
     Stage.create(name: 'do a thing', number: 1, challenge_id: @challenge_id)
     @stage_id = Stage.first.id
     Stage.create(name: 'do something else', number: 2, challenge_id: @challenge_id)
+    @stage_2_id = Stage.last.id
   end
 
   scenario 'the first incomplete stage appears on the /challenges/id/stages page' do
@@ -29,5 +30,16 @@ feature 'view stages' do
     click_link('Boris Bikes')
     expect(page).to_not have_content('do a thing')
     expect(page).to have_content('do something else')
+  end
+
+  scenario 'user is informed if all stages have been completed' do
+    Result.create(status: 'Y', stage_id: @stage_id, student_id: @student_id, challenge_id: @challenge_id)
+    Result.create(status: 'Y', stage_id: @stage_2_id, student_id: @student_id, challenge_id: @challenge_id)
+
+    visit('/cohorts')
+    click_link('July 2018')
+    click_button('Barry')
+    click_link('Boris Bikes')
+    expect(page).to_not have_content('All stages complete')
   end
 end

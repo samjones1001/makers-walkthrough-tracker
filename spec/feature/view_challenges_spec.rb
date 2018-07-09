@@ -1,9 +1,10 @@
 feature 'view challenges' do
   before(:each) do
   	Cohort.create(name: 'July 2018')
+    cohort_id = Cohort.first.id
     Cohort.create(name: 'August')
-    Student.create(name: 'Barry', cohort_id: 1)
-    Student.create(name: 'Sally', cohort_id: 1)
+    Student.create(name: 'Barry', cohort_id: cohort_id)
+    Student.create(name: 'Sally', cohort_id: cohort_id)
     Student.create(name: 'Berty', cohort_id: 2)
     Challenge.create(number: 1, name: 'Boris Bikes')
   end

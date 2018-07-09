@@ -1,1 +1,17 @@
 <%= @stage.name %>
+
+<form class="" action="/results" method="post">
+  <input type="hidden" name="stage_id" value="<%= @stage.id %>">
+  <input type="hidden" name="challenge_id" value="<%= @stage.challenge_id %>">
+  <div>
+    <input type="radio" id="choice1"
+     name="status" value="yes">
+    <label for="choice1">Yes</label>
+
+    <input type="radio" id="choice2"
+     name="status" value="no">
+    <label for="choice2">No</label>
+  </div>
+
+  <input type="submit" value="Submit">
+</form>
