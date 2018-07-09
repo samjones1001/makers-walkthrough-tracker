@@ -54,6 +54,7 @@ class WalkthroughTracker < Sinatra::Base
 
   get '/admin' do
     @cohorts = Cohort.all
+    @challenges = Challenge.all
     erb :dashboard
   end
 
@@ -64,6 +65,16 @@ class WalkthroughTracker < Sinatra::Base
 
   post '/student' do
     Student.create(name: params[:student_name], cohort_id: params[:cohort_picker])
+    redirect '/admin'
+  end
+
+  post '/challenge' do
+    Challenge.create(name: params[:challenge_name], number: params[:challenge_number])
+    redirect '/admin'
+  end
+
+  post '/stage' do
+    Stage.create(name: params[:stage_name], number: params[:stage_number], challenge_id: params[:challenge_picker])
     redirect '/admin'
   end
 

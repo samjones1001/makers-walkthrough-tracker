@@ -15,3 +15,23 @@
   </select>
   <input type="submit" value="Create Student">
 </form>
+
+
+<h1>Create Challenge</h1>
+<form class="" action="/challenge" method="post">
+  <input type="text" name="challenge_name" value="">
+  <input type="text" name="challenge_number" value="">
+  <input type="submit" value="Create Challenge">
+</form>
+
+<h1>Create Stage</h1>
+<form class="" action="/stage" method="post">
+  <input type="text" name="stage_name" value="">
+  <input type="text" name="stage_number" value="">
+  <select name="challenge_picker">
+    <% @challenges.each do |challenge| %>
+      <option class="challengePicker" value="<%= challenge.id %>"><%= challenge.name %></option>
+    <% end %>
+  </select>
+  <input type="submit" value="Create Stage">
+</form>
