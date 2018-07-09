@@ -7,7 +7,6 @@ require_relative './lib/cohort'
 require_relative './lib/student'
 require_relative './lib/challenge'
 
-
 class WalkthroughTracker < Sinatra::Base
   enable :sessions
 
@@ -31,6 +30,7 @@ class WalkthroughTracker < Sinatra::Base
   end
 
   get '/challenges' do
+    redirect '/cohorts' if !session[:student_id]
     @challenges = Challenge.all
     erb :'challenges/index'
   end
