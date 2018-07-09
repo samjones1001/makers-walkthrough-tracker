@@ -5,5 +5,5 @@ class Student
   property :name,   String
 
   belongs_to :cohort
-
+  has n, :results
 end

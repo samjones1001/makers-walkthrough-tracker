@@ -5,4 +5,6 @@ class Challenge
   property :number, Integer
   property :name,   String
 
+  has n, :stages
+  has n, :results
 end

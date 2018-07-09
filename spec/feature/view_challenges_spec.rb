@@ -17,7 +17,6 @@ feature 'view challenges' do
 
   scenario 'visitng the /challenges page before selecting  student redirects to cohorts' do
     visit('/challenges')
-
     expect(current_path).to eq("/cohorts")
   end
 end
