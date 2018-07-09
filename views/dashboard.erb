@@ -1,0 +1,17 @@
+<h1>Create Cohort</h1>
+<form class="" action="/cohort" method="post">
+  <input type="text" name="cohort_name" value="">
+  <input type="submit" value="Create Cohort">
+</form>
+
+
+<h1>Create Student</h1>
+<form class="" action="/student" method="post">
+  <input type="text" name="student_name" value="">
+  <select name="cohort_picker">
+    <% @cohorts.each do |cohort| %>
+      <option value="<%= cohort.id %>"><%= cohort.name %></option>
+    <% end %>
+  </select>
+  <input type="submit" value="Create Student">
+</form>

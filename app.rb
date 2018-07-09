@@ -52,5 +52,20 @@ class WalkthroughTracker < Sinatra::Base
     redirect "/challenges/#{params[:challenge_id]}/stages"
   end
 
+  get '/admin' do
+    @cohorts = Cohort.all
+    erb :dashboard
+  end
+
+  post '/cohort' do
+    Cohort.create(name: params[:cohort_name])
+    redirect '/admin'
+  end
+
+  post '/student' do
+    Student.create(name: params[:student_name], cohort_id: params[:cohort_picker])
+    redirect '/admin'
+  end
+
   run! if app_file == $0
 end
